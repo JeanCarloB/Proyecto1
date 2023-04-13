@@ -1,6 +1,6 @@
 
-<%@page import="com.progra.guia.logic.Cuenta"%>
-<%@page import="com.progra.guia.presentation.cliente.cuenta.Model"%>
+<%@page import="com.mycompany.proyecto1.logic.Cuenta"%>
+<%@page import="com.mycompany.proyecto1.presentation.cliente.cuenta.Model"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%

@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 
-@WebServlet(name = "ClienteCuentaController", urlPatterns = {"/presentation/cliente/cuenta/show"})
+@WebServlet(name = "ClienteCuentaController", urlPatterns = {"/presentation/cliente/poliza/show"})
 public class Controller extends HttpServlet {
     
   protected void processRequest(HttpServletRequest request, 
@@ -29,7 +29,7 @@ public class Controller extends HttpServlet {
         
         String viewUrl="";     
         switch (request.getServletPath()) {
-          case "/presentation/cliente/cuenta/show":
+          case "/presentation/cliente/poliza/show":
               viewUrl = this.show(request);
               break;
         }          
@@ -75,8 +75,8 @@ public class Controller extends HttpServlet {
         try {        
             model.setCurrent(service.polizaFind(model.getCurrent().getPlaca()));
             if (!(model.getCurrent().getCliente().getCedula().equals(usuario.getCedula()))) 
-                throw new Exception("Cuenta no pertenece al cliente");
-            return "/presentation/cliente/cuenta/View.jsp";
+                throw new Exception("Poliza no pertenece al cliente");
+            return "/presentation/cliente/poliza/View.jsp";
         } catch (Exception ex) {
             return "/presentation/Error.jsp";
         }

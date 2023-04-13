@@ -1,4 +1,4 @@
-<%@page import="com.progra.guia.presentation.cliente.datos.Model"%>
+<%@page import="com.mycompany.proyecto1.presentation.cliente.datos.Model"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

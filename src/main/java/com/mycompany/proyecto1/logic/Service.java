@@ -39,6 +39,7 @@ public class Service {
         relDatabase = new RelDatabase();
         usuarioDao = new UsuarioDao(relDatabase);
         clienteDao = new ClienteDao(relDatabase);
+        polizaDao = new PolizaDao(relDatabase);
         
         //        usuarios = new HashMap();
 //        usuarios.put("111", new Usuario("111","111",1));
