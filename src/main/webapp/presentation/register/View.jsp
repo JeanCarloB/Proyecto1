@@ -58,7 +58,7 @@
 
   <div class="fila">
     <label for="clave">Contraseña:</label>
-    <input class="<%=erroneo("claveFld",errores)%>" type="text" id="clave" 
+    <input class="<%=erroneo("claveFld",errores)%>" type="password" id="clave" 
            name="claveFld" value="" title="<%=title("claveFld",errores)%>">
   </div>
 

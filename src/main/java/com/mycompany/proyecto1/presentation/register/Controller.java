@@ -107,11 +107,12 @@ public class Controller extends HttpServlet {
         private String updateAction(HttpServletRequest request) {
         Model model= (Model) request.getAttribute("model");
         Service  service = Service.instance();
+        Cliente cliente = model.getCurrent();
         Usuario usuario = model.getCurrent().getUsuario();
         try {
-            service.clienteCreate(model.getCurrent());
             service.usuarioCreate(usuario);
-            return "/presentation/Index.jsp";
+            service.clienteCreate(cliente);
+            return "/presentation/login/show";
         } catch (Exception ex) {
             Map<String,String> errores = new HashMap<>();
             request.setAttribute("errores", errores);
