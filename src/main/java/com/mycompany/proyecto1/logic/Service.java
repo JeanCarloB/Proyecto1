@@ -61,10 +61,15 @@ public class Service {
 //        favoritas.put("111", Arrays.asList(new String[]{"2-111-11"}));
 //        favoritas.put("222", Arrays.asList(new String[]{"1-111-11","1-222-22"}));
 }
-    public Usuario usuarioFind(String cedula,String clave) throws Exception{
-        return usuarioDao.read(cedula);
-        // Falta verificar clave
+    public Usuario usuarioFind(String cedula, String clave) throws Exception {
+    Usuario usuario = usuarioDao.read(cedula);
+    if (usuario.getClave().equals(clave)) {
+        return usuario;
+    } else {
+        return null;
     }
+}
+
     
     public Cliente clienteFind(Usuario usuario) throws Exception{
         return clienteDao.read(usuario.getCedula());
