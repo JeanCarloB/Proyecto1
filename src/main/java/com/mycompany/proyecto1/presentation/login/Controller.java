@@ -20,7 +20,7 @@ import java.util.Map;
  *
  * @author ribre
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/presentation/login/show","/presentation/login/login","/presentation/login/logout"})
+@WebServlet(name = "LoginController", urlPatterns = {"/presentation/login/show","/presentation/login/login","/presentation/login/logout","/presentation/login/register"})
 public class Controller extends HttpServlet {
 
   protected void processRequest(HttpServletRequest request, 
@@ -39,6 +39,9 @@ public class Controller extends HttpServlet {
                 break;            
             case "/presentation/login/logout":
                 viewUrl=this.logout(request);
+                break;
+            case "/presentation/login/register":
+                viewUrl="/presentation/register/show";
                 break;
         }
         request.getRequestDispatcher(viewUrl).forward( request, response); 

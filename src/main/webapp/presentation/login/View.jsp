@@ -43,12 +43,14 @@
                 </div>
             </div>
         </form>
+        <form class="form" name="form" action="presentation/login/register" method="post" > 
         <div class="fila" style="display:flex;justify-content: center;align-items: center;">
             <div style="margin-bottom: 15px">
                 <h3>No estás registrado?</h3>
                 <button class="boton" style="margin-bottom: 15px">Crear cuenta</button>
             </div>
         </div>
+        </form>
         <%@ include file="/presentation/Footer.jsp" %>                  
     </body>
 </html>
