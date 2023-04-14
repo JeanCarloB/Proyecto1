@@ -12,34 +12,21 @@ import com.mycompany.proyecto1.logic.Usuario;
  * @author Kevin
  */
 public class Model {
-    Cliente currentC;
-    Usuario current;
+    Cliente current;
 
     public Model() {
-        this.reset();
+         this.current = new Cliente("","","","","",new Usuario());
     }
     
     public void reset(){
-        setCurrent(new Usuario());
-        setCurrentC(new Cliente());
+        setCurrent(new Cliente());
     }
-    
-    public Usuario getCurrent() {
+
+    public Cliente getCurrent() {
         return current;
     }
 
-    public void setCurrent(Usuario current) {
+    public void setCurrent(Cliente current) {
         this.current = current;
     }
-
-    public Cliente getCurrentC() {
-        return currentC;
-    }
-
-    public void setCurrentC(Cliente currentC) {
-        this.currentC = currentC;
-    }
-    
-   
 }
-

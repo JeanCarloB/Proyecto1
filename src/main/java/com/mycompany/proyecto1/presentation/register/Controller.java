@@ -17,7 +17,7 @@ import java.util.Map;
  *
  * @author ribre
  */
-@WebServlet(name = "RegisterController", urlPatterns = {"/presentation/register/show"})
+@WebServlet(name = "RegisterController", urlPatterns = {"/presentation/register/show","/presentation/register/create"})
 public class Controller extends HttpServlet {
 
   protected void processRequest(HttpServletRequest request, 
@@ -30,7 +30,10 @@ public class Controller extends HttpServlet {
         switch(request.getServletPath()){
             case "/presentation/register/show":
                 viewUrl=this.show(request);
-                break;              
+                break;  
+            case "/presentation/register/create":
+                viewUrl=this.create(request);
+                break;
      
         }
         request.getRequestDispatcher(viewUrl).forward( request, response); 
@@ -42,6 +45,18 @@ public class Controller extends HttpServlet {
 
     private String showAction(HttpServletRequest request) {
         return "/presentation/register/View.jsp";
+    }
+    
+    private String create(HttpServletRequest request) {
+       return "/presentation/Error.jsp";     
+    }
+    
+    Map<String,String> validar(HttpServletRequest request){
+        Map<String,String> errores = new HashMap<>();
+        if (request.getParameter("nombreFld").isEmpty()){
+            errores.put("nombreFld","Nombre requerido");
+        }
+        return errores;
     }
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -83,4 +98,4 @@ public class Controller extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 }
-   
+  
