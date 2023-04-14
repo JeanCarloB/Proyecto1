@@ -24,9 +24,12 @@
                 </div>
                 <div class="fila">
                   <div class="etiqueta">Nombre</div>
-                  <div class="campo"><input class="<%=erroneo("nombreFld",errores)%>" placeholder="Nombre del usuario" type="text" name="nombreFld" value="<%=form.get("nombreFld")[0]%>" title="<%=title("nombreFld",errores)%>"></div>
+                  
+                  <div class="campo"><input class="<%=erroneo("nombreFld",errores)%>" placeholder="Nombre del usuario" 
+                                            type="text" name="nombreFld" value="<%=form.get("nombreFld")[0]%>" 
+                                            title="<%=title("nombreFld",errores)%>"></div>
                 </div>
-                <div class="fila encabezado"><button  style="margin-bottom: 15px">Actualzar</button> </div>
+                <div class="fila encabezado"><button  style="margin-bottom: 15px">Actualizar</button> </div>
             </div>
         </form>
     <%@ include file="/presentation/Footer.jsp" %>                  
