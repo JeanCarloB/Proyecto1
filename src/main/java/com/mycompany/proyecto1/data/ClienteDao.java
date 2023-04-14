@@ -59,5 +59,19 @@ public class ClienteDao {
         if (count == 0) {
             throw new Exception("Cliente no existe");
         }
-    }  
-}
+    }
+    public void create(Cliente e) throws Exception {
+        String sql = "insert into " +
+                "Cliente " +
+                "(cedula, nombre, telefono, correo, tarjeta, usuario) " +
+                "values(?,?,?,?,?,?)";
+        PreparedStatement stm = db.prepareStatement(sql);
+        stm.setString(1, e.getCedula());
+        stm.setString(2, e.getNombre());
+        stm.setString(3, e.getTelefono());
+        stm.setString(4, e.getCorreo());
+        stm.setString(5, e.getTarjeta());
+        stm.setString(6, e.getUsuario().getCedula());
+        db.executeUpdate(stm);
+    }
+   }

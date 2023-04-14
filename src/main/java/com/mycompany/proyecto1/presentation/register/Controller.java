@@ -1,6 +1,7 @@
 package com.mycompany.proyecto1.presentation.register;
 
 
+import com.mycompany.proyecto1.logic.Cliente;
 import com.mycompany.proyecto1.logic.Service;
 import com.mycompany.proyecto1.logic.Usuario;
 import jakarta.servlet.ServletException;
@@ -12,6 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -48,15 +50,74 @@ public class Controller extends HttpServlet {
     }
     
     private String create(HttpServletRequest request) {
-       return "/presentation/Error.jsp";     
-    }
+        try{
+       Model model = (Model) request.getAttribute("model");
+       Map<String,String> errores =  this.validar(request);
+       if(errores.isEmpty()){
+                this.updateModel(request);          
+                return this.updateAction(request);
+            }
+            else{
+                request.setAttribute("errores", errores);
+                return "/presentation/cliente/datos/View.jsp"; 
+            }            
+        }
+        catch(Exception e){
+            return "/presentation/Error.jsp";             
+        }   
+    } 
     
     Map<String,String> validar(HttpServletRequest request){
         Map<String,String> errores = new HashMap<>();
         if (request.getParameter("nombreFld").isEmpty()){
             errores.put("nombreFld","Nombre requerido");
         }
+        else if (request.getParameter("cedulaFld").isEmpty()){
+            errores.put("cedulaFld","Cedula requerida");
+        }
+        else if (request.getParameter("telefonoFld").isEmpty()){
+            errores.put("telefonoFld","Telefono requerido");
+        }
+        else if (request.getParameter("correoFld").isEmpty()){
+            errores.put("correoFld","Correo requerido");
+        }
+        else if (request.getParameter("tarjetaFld").isEmpty()){
+            errores.put("tarjetaFld","Tarjeta requerida");
+        }
+        else if (request.getParameter("claveFld").isEmpty()){
+            errores.put("claveFld","Clave requerida");
+        }
         return errores;
+    }
+    
+        private void updateModel(HttpServletRequest request) {
+            
+        Model model= (Model) request.getAttribute("model");
+       
+        model.getCurrent().setNombre(request.getParameter("nombreFld"));
+        model.getCurrent().setCedula(request.getParameter("cedulaFld"));
+        model.getCurrent().setTelefono(request.getParameter("telefonoFld"));
+        model.getCurrent().setCorreo(request.getParameter("correoFld"));
+        model.getCurrent().setTarjeta(request.getParameter("tarjetaFld"));
+        model.getCurrent().getUsuario().setCedula(request.getParameter("cedulaFld"));
+        model.getCurrent().getUsuario().setClave(request.getParameter("claveFld"));
+        model.getCurrent().getUsuario().setTipo(1);
+    }
+        
+        private String updateAction(HttpServletRequest request) {
+        Model model= (Model) request.getAttribute("model");
+        Service  service = Service.instance();
+        Usuario usuario = model.getCurrent().getUsuario();
+        try {
+            service.clienteCreate(model.getCurrent());
+            service.usuarioCreate(usuario);
+            return "/presentation/Index.jsp";
+        } catch (Exception ex) {
+            Map<String,String> errores = new HashMap<>();
+            request.setAttribute("errores", errores);
+            errores.put("nombreFld","cedula o nombre incorrectos");
+            return "/presentation/cliente/datos/View.jsp"; 
+        }
     }
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -97,5 +158,6 @@ public class Controller extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 }
   

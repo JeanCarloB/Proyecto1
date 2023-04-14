@@ -45,5 +45,16 @@ public class UsuarioDao {
         } catch (SQLException ex) {
             return null;
         }
-    }       
+    }
+    public void create(Usuario e) throws Exception {
+        String sql = "insert into " +
+                "Usuario " +
+                "(cedula, clave, tipo) " +
+                "values(?,?,?)";
+        PreparedStatement stm = db.prepareStatement(sql);
+        stm.setString(1, e.getCedula());
+        stm.setString(2, e.getClave());
+        stm.setInt(3, e.getTipo());
+        db.executeUpdate(stm);
  }
+}

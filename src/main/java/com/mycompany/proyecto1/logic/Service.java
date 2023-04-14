@@ -83,4 +83,11 @@ public class Service {
         return polizaDao.read(numero);
     } 
     
+     public void clienteCreate(Cliente cliente) throws Exception{
+       clienteDao.create(cliente);
+     }
+     
+     public void usuarioCreate(Usuario usuario) throws Exception{
+       usuarioDao.create(usuario);
+     }
 }
