@@ -41,7 +41,7 @@ public class Controller extends HttpServlet {
                 viewUrl=this.logout(request);
                 break;
             case "/presentation/login/register":
-                viewUrl="/presentation/register/show";
+                viewUrl=this.register(request);
                 break;
         }
         request.getRequestDispatcher(viewUrl).forward( request, response); 
@@ -117,9 +117,8 @@ public class Controller extends HttpServlet {
     public String logoutAction(HttpServletRequest request){
         HttpSession session = request.getSession(true);
         session.removeAttribute("usuario");
-        session.invalidate();
-        return "/presentation/Index.jsp"; 
-        //return "/presentation/login/show";
+        session.invalidate(); 
+        return "/presentation/login/show";
     }
 
     public String show(HttpServletRequest request){
@@ -132,6 +131,12 @@ public class Controller extends HttpServlet {
         model.getCurrent().setClave("");
         return "/presentation/login/View.jsp"; 
     }    
+    
+    private String register(HttpServletRequest request) {
+        String viewUrl="";
+        viewUrl="/presentation/register/show";
+        return viewUrl;
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -171,4 +176,5 @@ public class Controller extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 }

@@ -43,10 +43,10 @@
                 </div>
             </div>
         </form>
-        <form class="form" name="form" action="presentation/login/register" method="post" > 
+        <form method="post" action="presentation/login/register"> 
         <div class="fila" style="display:flex;justify-content: center;align-items: center;">
             <div style="margin-bottom: 15px">
-                <h3>No estás registrado?</h3>
+                <h2>No estás registrado?</h2>
                 <button class="boton" style="margin-bottom: 15px">Crear cuenta</button>
             </div>
         </div>
