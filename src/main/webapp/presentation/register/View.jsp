@@ -46,7 +46,7 @@
 
   <div class="fila">
     <label for="correo">Correo:</label>
-    <input class="<%=erroneo("correoFld",errores)%>" type="email" id="correo" 
+    <input class="<%=erroneo("correoFld",errores)%>" type="text" id="correo" 
            name="correoFld" value="<%=form.get("correoFld")[0]%>" title="<%=title("correoFld",errores)%>">
   </div>
 
@@ -64,8 +64,8 @@
 
   <div class="fila">
     <label for="admin">¿Es admin?</label>
-    <input type="checkbox" id="admin" 
-           name="adminFld" value="true">
+    <input class="<%=erroneo("claveFld",errores)%>" type="checkbox" id="admin" 
+           name="adminFld" title="<%=title("adminFld",errores)%>">
   </div>
 
   <div class="fila">
@@ -101,7 +101,6 @@
        values.put("correoFld", new String[]{model.getCurrent().getCorreo()});
        values.put("tarjetaFld", new String[]{model.getCurrent().getTarjeta()});
        values.put("claveFld", new String[]{model.getCurrent().getUsuario().getClave()});
-       
        return values;
     }
 %> 

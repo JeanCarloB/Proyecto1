@@ -9,11 +9,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  *
@@ -59,7 +57,7 @@ public class Controller extends HttpServlet {
             }
             else{
                 request.setAttribute("errores", errores);
-                return "/presentation/cliente/datos/View.jsp"; 
+                return "/presentation/register/View.jsp";
             }            
         }
         catch(Exception e){
@@ -69,22 +67,25 @@ public class Controller extends HttpServlet {
     
     Map<String,String> validar(HttpServletRequest request){
         Map<String,String> errores = new HashMap<>();
+        if (request.getParameter("cedulaFld").isEmpty()){
+            errores.put("cedulaFld","Cedula requerida");
+        }
         if (request.getParameter("nombreFld").isEmpty()){
             errores.put("nombreFld","Nombre requerido");
         }
-        else if (request.getParameter("cedulaFld").isEmpty()){
+        if (request.getParameter("cedulaFld").isEmpty()){
             errores.put("cedulaFld","Cedula requerida");
         }
-        else if (request.getParameter("telefonoFld").isEmpty()){
+        if (request.getParameter("telefonoFld").isEmpty()){
             errores.put("telefonoFld","Telefono requerido");
         }
-        else if (request.getParameter("correoFld").isEmpty()){
+        if (request.getParameter("correoFld").isEmpty()){
             errores.put("correoFld","Correo requerido");
         }
-        else if (request.getParameter("tarjetaFld").isEmpty()){
+        if (request.getParameter("tarjetaFld").isEmpty()){
             errores.put("tarjetaFld","Tarjeta requerida");
         }
-        else if (request.getParameter("claveFld").isEmpty()){
+        if (request.getParameter("claveFld").isEmpty()){
             errores.put("claveFld","Clave requerida");
         }
         return errores;
@@ -101,8 +102,15 @@ public class Controller extends HttpServlet {
         model.getCurrent().setTarjeta(request.getParameter("tarjetaFld"));
         model.getCurrent().getUsuario().setCedula(request.getParameter("cedulaFld"));
         model.getCurrent().getUsuario().setClave(request.getParameter("claveFld"));
-        model.getCurrent().getUsuario().setTipo(1);
-    }
+        String admin = request.getParameter("adminFld");
+        boolean myCheckBox = request.getParameter( "adminFld" ) != null;
+        if (myCheckBox==true) {
+            model.getCurrent().getUsuario().setTipo(2);
+        }
+        if (myCheckBox==false) {
+            model.getCurrent().getUsuario().setTipo(1);
+        }
+   }
         
         private String updateAction(HttpServletRequest request) {
         Model model= (Model) request.getAttribute("model");
