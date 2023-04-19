@@ -39,6 +39,20 @@
             </tbody>
         </table>
     </div>
+            
+            <br>
+            
+            
+            <div style="width:50%;margin:auto;">
+            <form class="form" name="form" action="presentation/login/login" method="post" > 
+                
+                <div class="fila">
+                    <div style="margin-bottom: 15px">
+                        <button  class="boton" style="margin-bottom: 15px">Agregar nuevo Modelo</button>
+                    </div>
+                </div>
+        </form>
+                  </div>
          <%@ include file="/presentation/Footer.jsp" %>
     </body>
 </html>
