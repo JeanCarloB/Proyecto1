@@ -103,13 +103,7 @@ public class Controller extends HttpServlet {
         model.getCurrent().getUsuario().setCedula(request.getParameter("cedulaFld"));
         model.getCurrent().getUsuario().setClave(request.getParameter("claveFld"));
         String admin = request.getParameter("adminFld");
-        boolean myCheckBox = request.getParameter( "adminFld" ) != null;
-        if (myCheckBox==true) {
-            model.getCurrent().getUsuario().setTipo(2);
-        }
-        if (myCheckBox==false) {
-            model.getCurrent().getUsuario().setTipo(1);
-        }
+        model.getCurrent().getUsuario().setTipo(1);
    }
         
         private String updateAction(HttpServletRequest request) {

@@ -24,7 +24,7 @@
         <% Model model= (Model) request.getAttribute("model"); %>
         <% Map<String,String> errores = (Map<String,String>) request.getAttribute("errores"); %>
         <% Map<String,String[]> form = (errores==null)?this.getForm(model):request.getParameterMap();%>
-
+<div class="panel" style="width:30%;">
         <form method="POST" action="presentation/register/create">
   <div class="fila">
     <label for="cedula">Cédula:</label>
@@ -63,16 +63,11 @@
   </div>
 
   <div class="fila">
-    <label for="admin">¿Es admin?</label>
-    <input class="<%=erroneo("claveFld",errores)%>" type="checkbox" id="admin" 
-           name="adminFld" title="<%=title("adminFld",errores)%>">
-  </div>
-
-  <div class="fila">
     <button type="submit">Enviar</button>
     <button type="reset">Limpiar</button>
   </div>
 </form>
+  </div>
         <%@ include file="/presentation/Footer.jsp" %>                  
     </body>
 </html>
