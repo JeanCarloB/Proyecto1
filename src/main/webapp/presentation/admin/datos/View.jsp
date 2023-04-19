@@ -28,11 +28,11 @@
     
         <table>
             <thead>
-                <tr> <td>Numero</td> </tr>
+                <tr> <td>Numero</td> <td>Nombre</td> </tr>
             </thead>
             <tbody>
                 <% for(Cliente c:clientes){%>
-                <tr> <td><a href="presentation/cliente/poliza/show?numeroFld=<%=c.getNumero()%>"><%=c.getId()%> </td>  
+                <tr> <td><a href="presentation/cliente/poliza/show?numeroFld=<%=c.getCedula()%>"><%=c.getCedula()%> </td>  
                         <td><%=c.getNombre()%></td></tr>             
                         <%}%>
             </tbody>

@@ -33,10 +33,6 @@
             <% } %>
             <% if (usuario.getTipo()==2){ %>
             <li>
-                <a href="presentation/cliente/polizas/show">Polizas</a>
-                <ul>  <!--submenu --> </ul>
-            </li>
-            <li>
                 <a href="presentation/admin/datos/show">Clientes</a>
                 <ul>  <!--submenu --> </ul>
             </li>
