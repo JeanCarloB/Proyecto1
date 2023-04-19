@@ -41,7 +41,7 @@
             <br>
             
              <div style="width:50%;margin:auto;">
-            <form class="form" name="form" action="presentation/login/login" method="post" > 
+            <form class="form" name="form" action="presentation/admin/marca/show" method="post" > 
                 
                 <div class="fila">
                     <div style="margin-bottom: 15px">
