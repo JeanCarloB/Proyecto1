@@ -44,6 +44,7 @@ public class Service {
         clienteDao = new ClienteDao(relDatabase);
         polizaDao = new PolizaDao(relDatabase);
         marcaDao = new MarcaDao(relDatabase);
+        modeloDao = new ModeloDao(relDatabase);
         
 }
     public Usuario usuarioFind(String cedula, String clave) throws Exception {
@@ -63,6 +64,11 @@ public class Service {
     public List<Marca> marcasFind() {
         List<Marca> marcas = marcaDao.findMarcas();
         return marcas;
+    }
+    
+    public List<Modelo> modelosFind() {
+        List<Modelo> modelos = modeloDao.findModelos();
+        return modelos;
     }
     
     public List<Cliente> clienteFind() {

@@ -4,6 +4,9 @@
  */
 package com.mycompany.proyecto1.logic;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author ribre
@@ -11,10 +14,11 @@ package com.mycompany.proyecto1.logic;
 public class Marca {
     Integer id;
     String nombre;
-    //...
+    List<Modelo> modelos;
 
     public Marca(String nombre) {
         this.nombre = nombre;
+        this.modelos = new ArrayList();
     }
 
     public Marca() {
@@ -34,6 +38,14 @@ public class Marca {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public List<Modelo> getModelos() {
+        return modelos;
+    }
+
+    public void setModelos(List<Modelo> modelos) {
+        this.modelos = modelos;
     }
 
     @Override

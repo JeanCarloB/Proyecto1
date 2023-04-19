@@ -43,7 +43,7 @@
             </li>
             
             <li>
-                <a href="presentation/admin/modelo/create">Gestionar Modelos</a>
+                <a href="presentation/admin/modelos/show">Gestionar Modelos</a>
                 <ul>  <!--submenu --> </ul>
             </li>
                      
