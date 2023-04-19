@@ -38,7 +38,7 @@
             </li>
             
             <li>
-                <a href="presentation/admin/marca/create">Gestionar Marcas</a>
+                <a href="presentation/admin/marcas/show">Gestionar Marcas</a>
                 <ul>  <!--submenu --> </ul>
             </li>
             

@@ -5,6 +5,8 @@
 package com.mycompany.proyecto1.logic;
 
 import com.mycompany.proyecto1.data.ClienteDao;
+import com.mycompany.proyecto1.data.MarcaDao;
+import com.mycompany.proyecto1.data.ModeloDao;
 import com.mycompany.proyecto1.data.PolizaDao;
 import com.mycompany.proyecto1.data.RelDatabase;
 import com.mycompany.proyecto1.data.UsuarioDao;
@@ -27,7 +29,8 @@ public class Service {
     UsuarioDao usuarioDao;
     ClienteDao clienteDao;
     PolizaDao polizaDao;
-    
+    MarcaDao marcaDao;
+    ModeloDao modeloDao;
     
     
     //    HashMap<String,Usuario> usuarios;
@@ -74,6 +77,13 @@ public class Service {
     public Cliente clienteFind(Usuario usuario) throws Exception{
         return clienteDao.read(usuario.getCedula());
     }
+    
+    public List<Marca> marcasFind() throws Exception{
+        List<Marca> marcas = marcaDao.findMarcas();
+        return marcas;
+    }
+    
+    
     public List<Poliza> cuentasFind(Cliente cliente) throws Exception{
         List<Poliza> polizas = polizaDao.findByCliente(cliente);
         for(Poliza e:polizas) e.setCliente(cliente);

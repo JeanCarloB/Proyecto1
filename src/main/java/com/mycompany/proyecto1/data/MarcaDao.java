@@ -4,10 +4,50 @@
  */
 package com.mycompany.proyecto1.data;
 
+import com.mycompany.proyecto1.logic.Marca;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
 /**
  *
  * @author ribre
  */
 public class MarcaDao {
     
+    RelDatabase db;
+
+    public MarcaDao(RelDatabase db) {
+        this.db = db;
+    }
+    
+    public List<Marca> findMarcas() {
+        List<Marca> resultado = new ArrayList<>();
+        try {
+            String sql = "select * "
+                    + "from "
+                    + "Marca e ";
+            PreparedStatement stm = db.prepareStatement(sql);
+            ResultSet rs = db.executeQuery(stm);
+            while (rs.next()) {
+                resultado.add(from(rs, "e"));
+            }
+        } catch (SQLException ex) {
+        }
+        return resultado;
+    }
+    
+    public Marca from(ResultSet rs, String alias) {
+        try {
+            Marca e = new Marca();
+            e.setId(rs.getInt(alias + ".cedula"));
+            e.setNombre(rs.getString(alias + ".nombre"));
+            return e;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
 }
