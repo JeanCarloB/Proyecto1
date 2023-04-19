@@ -50,4 +50,14 @@ public class MarcaDao {
             return null;
         }
     }
+    
+    public void create(Marca e) throws Exception {
+        String sql = "insert into "
+                + "Marca "
+                + "(nombre) "
+                + "values(?)";
+        PreparedStatement stm = db.prepareStatement(sql);
+        stm.setString(1, e.getNombre());
+        db.executeUpdate(stm);
+    }
 }

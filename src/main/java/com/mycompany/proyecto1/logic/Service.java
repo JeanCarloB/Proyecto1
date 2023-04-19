@@ -106,4 +106,8 @@ public class Service {
     public List<Modelo> modelosFindByMarca(Integer numero) throws Exception {
         return modeloDao.readByMarca(numero);
     }
+
+    public void marcaCreate(Marca marca) throws Exception {
+         marcaDao.create(marca);
+    }
 }
