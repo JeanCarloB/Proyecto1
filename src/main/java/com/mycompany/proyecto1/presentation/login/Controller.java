@@ -97,7 +97,7 @@ public class Controller extends HttpServlet {
                     viewUrl="/presentation/cliente/polizas/show";
                     break;
                 case 2:
-                     viewUrl="presentation/admin/show";
+                     viewUrl="/presentation/admin/datos/show";
                     break;             
             }
             return viewUrl;

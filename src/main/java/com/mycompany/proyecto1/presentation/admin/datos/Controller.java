@@ -23,7 +23,7 @@ import java.util.Set;
  *
  * @author ribre
  */
-@WebServlet(name = "AdminController", urlPatterns = {"/presentation/admin/show"})
+@WebServlet(name = "AdminController", urlPatterns = {"/presentation/admin/datos/show"})
 public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, 
@@ -33,7 +33,7 @@ public class Controller extends HttpServlet {
             request.setAttribute("model", new Model());
         String viewUrl="";     
         switch (request.getServletPath()) {
-          case "/presentation/admin/show":
+          case "/presentation/admin/datos/show":
               viewUrl = this.show(request);
               break;
         }          
