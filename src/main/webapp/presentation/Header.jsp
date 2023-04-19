@@ -38,12 +38,12 @@
             </li>
             
             <li>
-                <a href="presentation/admin/marca/create">Control de Marcas</a>
+                <a href="presentation/admin/marca/create">Gestionar Marcas</a>
                 <ul>  <!--submenu --> </ul>
             </li>
             
             <li>
-                <a href="presentation/admin/modelo/create">Control de Modelos</a>
+                <a href="presentation/admin/modelo/create">Gestionar Modelos</a>
                 <ul>  <!--submenu --> </ul>
             </li>
                      
