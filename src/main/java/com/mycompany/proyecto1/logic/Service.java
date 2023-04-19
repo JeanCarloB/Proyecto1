@@ -43,26 +43,8 @@ public class Service {
         usuarioDao = new UsuarioDao(relDatabase);
         clienteDao = new ClienteDao(relDatabase);
         polizaDao = new PolizaDao(relDatabase);
+        marcaDao = new MarcaDao(relDatabase);
         
-        //        usuarios = new HashMap();
-//        usuarios.put("111", new Usuario("111","111",1));
-//        usuarios.put("222", new Usuario("222","222",1));
-//        usuarios.put("333", new Usuario("333","333",2));
-//        
-//        clientes = new HashMap(); 
-//        clientes.put("111", new Cliente("111","J.Perez",usuarios.get("111")));
-//        clientes.put("222", new Cliente("222","B.Banner",usuarios.get("222")));
-//        clientes.put("333", new Cliente("333","L.Kjero",usuarios.get("333")));
-//        
-//        polizas = new HashMap(); 
-//        polizas.put("1-111-11", new Poliza("1-111-11",100.0,clientes.get("111")));
-//        polizas.put("1-222-22", new Poliza("1-222-22",200.0,clientes.get("111")));        
-//        polizas.put("2-111-11", new Poliza("2-111-11",150.0,clientes.get("222")));
-//
-//        //HashMap<String,List<String>> favoritas;
-//        favoritas = new HashMap(); 
-//        favoritas.put("111", Arrays.asList(new String[]{"2-111-11"}));
-//        favoritas.put("222", Arrays.asList(new String[]{"1-111-11","1-222-22"}));
 }
     public Usuario usuarioFind(String cedula, String clave) throws Exception {
     Usuario usuario = usuarioDao.read(cedula);
@@ -78,11 +60,15 @@ public class Service {
         return clienteDao.read(usuario.getCedula());
     }
     
-    public List<Marca> marcasFind() throws Exception{
+    public List<Marca> marcasFind() {
         List<Marca> marcas = marcaDao.findMarcas();
         return marcas;
     }
     
+    public List<Cliente> clienteFind() {
+       List<Cliente> clientes = clienteDao.findClientes();
+        return clientes;
+    }
     
     public List<Poliza> cuentasFind(Cliente cliente) throws Exception{
         List<Poliza> polizas = polizaDao.findByCliente(cliente);
@@ -108,10 +94,5 @@ public class Service {
      
     public void usuarioUpdate(Usuario usuario) throws Exception {
        usuarioDao.update(usuario);
-    }
-
-    public List<Cliente> clienteFind() {
-       List<Cliente> clientes = clienteDao.findClientes();
-        return clientes;
     }
 }

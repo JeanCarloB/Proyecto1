@@ -43,7 +43,7 @@ public class MarcaDao {
     public Marca from(ResultSet rs, String alias) {
         try {
             Marca e = new Marca();
-            e.setId(rs.getInt(alias + ".cedula"));
+            e.setId(rs.getInt(alias + ".id"));
             e.setNombre(rs.getString(alias + ".nombre"));
             return e;
         } catch (SQLException ex) {

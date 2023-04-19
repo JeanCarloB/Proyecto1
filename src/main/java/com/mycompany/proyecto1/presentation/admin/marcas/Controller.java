@@ -95,7 +95,7 @@ String viewUrl="";
         }
         try {        
             model.setMarcas(marcas);
-            return "/presentation/admin/datos/View.jsp";
+            return "/presentation/admin/marcas/View.jsp";
         } catch (Exception ex) {
             return "";
         }
