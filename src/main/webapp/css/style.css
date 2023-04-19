@@ -46,20 +46,37 @@ footer img{
     color: #D9CD57;
 }
 
-table {
+ table {
     border-collapse: collapse;
     width: 100%;
-}
-
-th, td {
-    padding: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  th {
+    background-color: #34495E;
+    color: #fff;
     text-align: left;
-    border-bottom: 1px solid gray;
-}
-
-tr:hover {
-    background-color:#f5f5f5;
-}
+    padding: 10px;
+  }
+  
+  td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  tr:nth-child(even) {
+    background-color: #fff;
+  }
+  tr:nth-child(odd) {
+    background-color: #B6F681 ;
+  }
+  tr:hover{
+    background-color:  #cecece;
+  }
+  a {
+    color: #3498db;
+    text-decoration: none;
+  }
 
 .panel{
     width:100%;
@@ -67,7 +84,7 @@ tr:hover {
     margin-top: 5px;
     border: 3px solid gray;
     padding: 10px;
-    background: #fff;
+    background: linear-gradient(to right, #ff7f50, #ffd801);;
     box-shadow: -10px 10px;
     min-width: 294px;
 }
@@ -127,7 +144,7 @@ input[type=text].is-invalid,input[type=password].is-invalid{
 }
 
 div button{
-  background-color: blue;
+  background-color: black;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -137,4 +154,8 @@ div button{
   font-size: 16px;
   margin-bottom: 15px;
   cursor: pointer;
+}
+div button:hover{
+  background-color: #fff;
+  color: #000;
 }

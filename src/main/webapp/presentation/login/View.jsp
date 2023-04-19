@@ -19,9 +19,9 @@
 
         <form class="form" name="form" action="presentation/login/login" method="post" > 
             <div class="panel" style="width:30%;">
-                <div class="fila encabezado">
+                <div class="fila">
                     <h2>Login</h2>
-                    <img src="/Proyecto1/images/auto.jpg" width="80px">
+                    <img src="/Proyecto1/images/auto.jpg" width="70px" style="border-radius: 50% 10% 50% 10%;border:1px solid #000;">
                 </div>
                 <div class="fila grid">
                     <div class="etiqueta">Cedula</div>
