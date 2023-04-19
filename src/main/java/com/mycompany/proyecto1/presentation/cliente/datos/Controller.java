@@ -17,6 +17,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @WebServlet(name = "ClienteDatosController", urlPatterns = {"/presentation/cliente/datos/show","/presentation/cliente/datos/update"})
@@ -87,6 +89,16 @@ public class Controller extends HttpServlet {
         if (request.getParameter("nombreFld").isEmpty()){
             errores.put("nombreFld","Nombre requerido");
         }
+        if (request.getParameter("telefonoFld").isEmpty()){
+            errores.put("telefonoFld","Telefono requerido");
+        }
+        if (request.getParameter("correoFld").isEmpty()){
+            errores.put("correoFld","Correo requerido");
+        }
+        if (request.getParameter("tarjetaFld").isEmpty()){
+            errores.put("tarjetaFld","Tarjeta requerido");
+        }
+        
         return errores;
     }
     
@@ -94,6 +106,10 @@ public class Controller extends HttpServlet {
        Model model= (Model) request.getAttribute("model");
        
         model.getCurrent().setNombre(request.getParameter("nombreFld"));
+        model.getCurrent().setTelefono(request.getParameter("telefonoFld"));
+        model.getCurrent().setCorreo(request.getParameter("correoFld"));
+        model.getCurrent().setTarjeta(request.getParameter("tarjetaFld"));
+        
    }
 
         
@@ -102,6 +118,7 @@ public class Controller extends HttpServlet {
         Service  service = Service.instance();
         HttpSession session = request.getSession(true);
         Usuario usuario = (Usuario) session.getAttribute("usuario");
+        usuario.setClave(model.getCurrent().getUsuario().getClave());
         model.getCurrent().setCedula(usuario.getCedula());
         model.getCurrent().setUsuario(usuario);
         try {
@@ -111,6 +128,7 @@ public class Controller extends HttpServlet {
             Map<String,String> errores = new HashMap<>();
             request.setAttribute("errores", errores);
             errores.put("nombreFld","cedula o nombre incorrectos");
+            errores.put("tarjetaFld","tarjeta incorrecta");
             return "/presentation/cliente/datos/View.jsp"; 
         }        
     }   

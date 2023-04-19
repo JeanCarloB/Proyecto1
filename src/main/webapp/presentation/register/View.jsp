@@ -63,8 +63,8 @@
   </div>
 
   <div class="fila">
-    <button type="submit">Enviar</button>
-    <button type="reset">Limpiar</button>
+    <button type="submit" style="margin-bottom: 15px">Enviar</button>
+    <button type="reset" style="margin-bottom: 15px">Limpiar</button>
   </div>
 </form>
   </div>

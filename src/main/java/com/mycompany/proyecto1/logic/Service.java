@@ -95,4 +95,8 @@ public class Service {
      public void usuarioCreate(Usuario usuario) throws Exception{
        usuarioDao.create(usuario);
      }
+     
+    public void usuarioUpdate(Usuario usuario) throws Exception {
+       usuarioDao.update(usuario);
+    }
 }

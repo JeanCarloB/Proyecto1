@@ -50,15 +50,22 @@ public class ClienteDao {
     public void update(Cliente e) throws Exception {
         String sql = "update " +
                 "Cliente " +
-                "set nombre=? " +
+                "set nombre=? , " +
+                " telefono=? , " +
+                " correo=? , " +
+                " tarjeta=? " +
                 "where cedula=?";
         PreparedStatement stm = db.prepareStatement(sql);
         stm.setString(1, e.getNombre());
-        stm.setString(2, e.getCedula());
+        stm.setString(2, e.getTelefono());
+        stm.setString(3, e.getCorreo());
+        stm.setString(4, e.getTarjeta());
+        stm.setString(5, e.getCedula());
         int count = db.executeUpdate(stm);
         if (count == 0) {
             throw new Exception("Cliente no existe");
         }
+        
     }
     public void create(Cliente e) throws Exception {
         String sql = "insert into " +

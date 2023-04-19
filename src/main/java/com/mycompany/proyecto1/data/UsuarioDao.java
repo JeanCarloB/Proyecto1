@@ -57,4 +57,18 @@ public class UsuarioDao {
         stm.setInt(3, e.getTipo());
         db.executeUpdate(stm);
  }
+    
+    public void update(Usuario e) throws Exception {
+        String sql = "update " +
+                "Usuario " +
+                "set clave=? , " +
+                "where cedula=?";
+        PreparedStatement stm = db.prepareStatement(sql);
+        stm.setString(1, e.getClave());
+        stm.setString(2, e.getCedula());
+        int count = db.executeUpdate(stm);
+        if (count == 0) {
+            throw new Exception("Cliente no existe");
+        }
+    }
 }
