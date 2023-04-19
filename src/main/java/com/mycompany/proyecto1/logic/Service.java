@@ -86,6 +86,7 @@ public class Service {
     public void clienteUpdate(Cliente cliente) throws Exception{
         clienteDao.update(cliente);
     }
+    
      public Poliza polizaFind(String numero) throws Exception{
         return polizaDao.read(numero);
     } 
@@ -100,5 +101,9 @@ public class Service {
      
     public void usuarioUpdate(Usuario usuario) throws Exception {
        usuarioDao.update(usuario);
+    }
+
+    public List<Modelo> modelosFindByMarca(Integer numero) throws Exception {
+        return modeloDao.readByMarca(numero);
     }
 }

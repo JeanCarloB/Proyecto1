@@ -48,4 +48,22 @@ public class ModeloDao {
             return null;
         }
     }
+
+    public List<Modelo> readByMarca(Integer numero) {
+       List<Modelo> resultado = new ArrayList<>();
+        try {
+            String sql = "select * "
+                    + "from "
+                    + "Modelo e "
+                    + "where e.marca=?";
+            PreparedStatement stm = db.prepareStatement(sql);
+            stm.setString(1, ""+numero);
+            ResultSet rs = db.executeQuery(stm);
+            while (rs.next()) {
+                resultado.add(from(rs, "e"));
+            }
+        } catch (SQLException ex) {
+        }
+        return resultado;
+    }
 }

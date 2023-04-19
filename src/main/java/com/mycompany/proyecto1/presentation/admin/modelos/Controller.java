@@ -4,6 +4,7 @@
  */
 package com.mycompany.proyecto1.presentation.admin.modelos;
 
+import com.mycompany.proyecto1.logic.Marca;
 import com.mycompany.proyecto1.logic.Modelo;
 import com.mycompany.proyecto1.logic.Service;
 import com.mycompany.proyecto1.logic.Usuario;
@@ -15,6 +16,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -86,9 +88,19 @@ String viewUrl="";
         Service service = Service.instance();
         HttpSession session = request.getSession(true);
         Usuario usuario = (Usuario) session.getAttribute("usuario");
-        List<Modelo> modelos; 
+        List<Modelo> modelos = new ArrayList<>();
+        List<Modelo> temp;
+        List<Marca> marcas;
         try {
-            modelos = service.modelosFind();
+            marcas = service.marcasFind();
+            for (Marca marca : marcas) {
+                temp = service.modelosFindByMarca(marca.getId());
+                 for (Modelo modelo : temp) {
+                     modelo.setMarca(marca);
+                     modelos.add(modelo);
+                 }
+                
+            }
         } catch (Exception ex) {
             modelos=null;
         }
