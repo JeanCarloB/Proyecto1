@@ -36,6 +36,17 @@
                 <a href="presentation/admin/datos/show">Clientes</a>
                 <ul>  <!--submenu --> </ul>
             </li>
+            
+            <li>
+                <a href="presentation/admin/marca/create">Control de Marcas</a>
+                <ul>  <!--submenu --> </ul>
+            </li>
+            
+            <li>
+                <a href="presentation/admin/modelo/create">Control de Modelos</a>
+                <ul>  <!--submenu --> </ul>
+            </li>
+                     
             <li >
                 <a  href="presentation/cliente/datos/show">Administrador: <%=usuario.getCedula()%></a>
                 <ul>  <!--submenu --> </ul>

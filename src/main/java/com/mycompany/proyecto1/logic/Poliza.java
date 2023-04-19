@@ -13,7 +13,7 @@ import java.util.Date;
  * @author Escinf
  */
 public class Poliza {
-    String numero;
+    Integer numero;
     String placa;
     double valor;
     String auto;
@@ -21,10 +21,10 @@ public class Poliza {
     Cliente cliente;
 
     public Poliza() {
-        this("","",0,"",new Date(),new Cliente());
+        this(0,"",0,"",new Date(),new Cliente());
     }
 
-    public Poliza(String numero, String placa, double valor, String auto, Date fecha, Cliente cliente) {
+    public Poliza(Integer numero, String placa, double valor, String auto, Date fecha, Cliente cliente) {
         this.numero = numero;
         this.placa = placa;
         this.valor = valor;
@@ -33,11 +33,11 @@ public class Poliza {
         this.cliente = cliente;
     }
 
-    public String getNumero() {
+    public Integer getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(Integer numero) {
         this.numero = numero;
     }
 

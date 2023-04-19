@@ -19,7 +19,7 @@ public class Model{
     Poliza current;
 
     public Model() {
-        current = new Poliza("","",0,"",new Date(),new Cliente());
+        current = new Poliza(0,"",0,"",new Date(),new Cliente());
     }
 
     public Poliza getCurrent() {

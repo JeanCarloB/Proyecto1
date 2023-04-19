@@ -64,7 +64,7 @@ public class PolizaDao {
     private Poliza from(ResultSet rs, String alias) {
         try {
             Poliza e = new Poliza();
-            e.setNumero(rs.getString(alias + ".numero"));
+            e.setNumero(rs.getInt(alias + ".numero"));
             e.setPlaca(rs.getString(alias + ".placa"));
             e.setValor(rs.getDouble(alias + ".valor"));
             e.setAuto(rs.getString(alias + ".auto"));

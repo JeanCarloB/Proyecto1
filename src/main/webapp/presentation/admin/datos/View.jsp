@@ -36,7 +36,7 @@
                         <td><%=c.getNombre()%></td></tr>             
                         <%}%>
             </tbody>
-        </table> 
+        </table>
     </div>
          <%@ include file="/presentation/Footer.jsp" %>
     </body>
