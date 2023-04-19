@@ -5,6 +5,8 @@ import com.mycompany.proyecto1.logic.Cliente;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -80,5 +82,21 @@ public class ClienteDao {
         stm.setString(5, e.getTarjeta());
         stm.setString(6, e.getUsuario().getCedula());
         db.executeUpdate(stm);
+    }
+
+    public List<Cliente> findClientes() {
+        List<Cliente> resultado = new ArrayList<>();
+        try {
+            String sql = "select * "
+                    + "from "
+                    + "Cliente e ";
+            PreparedStatement stm = db.prepareStatement(sql);
+            ResultSet rs = db.executeQuery(stm);
+            while (rs.next()) {
+                resultado.add(from(rs, "e"));
+            }
+        } catch (SQLException ex) {
+        }
+        return resultado;
     }
    }

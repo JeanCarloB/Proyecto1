@@ -75,7 +75,7 @@
        Map<String,String[]> values = new HashMap<>();
        values.put("cedulaFld", new String[]{model.getCurrent().getCedula()});
        values.put("nombreFld", new String[]{model.getCurrent().getNombre()});
-       values.put("telefonoFld", new String[]{model.getCurrent().getTelfono()});
+       values.put("telefonoFld", new String[]{model.getCurrent().getTelefono()});
        values.put("correoFld", new String[]{model.getCurrent().getCorreo()});
        values.put("tarjetaFld", new String[]{model.getCurrent().getTarjeta()});
        return values;

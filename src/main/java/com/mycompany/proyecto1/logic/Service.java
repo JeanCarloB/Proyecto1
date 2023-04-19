@@ -99,4 +99,9 @@ public class Service {
     public void usuarioUpdate(Usuario usuario) throws Exception {
        usuarioDao.update(usuario);
     }
+
+    public List<Cliente> clienteFind() {
+       List<Cliente> clientes = clienteDao.findClientes();
+        return clientes;
+    }
 }

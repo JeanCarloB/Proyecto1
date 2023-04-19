@@ -17,12 +17,13 @@
                 <a href="presentation/Index.jsp">Inicio</a>
             </li>
             <% if (usuario!=null){ %>
+            <% if (usuario.getTipo()==1){ %>
             <li>
                 <a href="presentation/cliente/polizas/show">Polizas</a>
                 <ul>  <!--submenu --> </ul>
             </li>                        
             <li >
-                <a  href="presentation/cliente/datos/show">Usuario:<%=usuario.getCedula()%></a>
+                <a  href="presentation/cliente/datos/show">Usuario: <%=usuario.getCedula()%></a>
                 <ul>  <!--submenu --> </ul>
             </li> 
             <li >
@@ -30,12 +31,30 @@
                 <ul>  <!--submenu --> </ul>
             </li>                
             <% } %>
+            <% if (usuario.getTipo()==2){ %>
+            <li>
+                <a href="presentation/cliente/polizas/show">Polizas</a>
+                <ul>  <!--submenu --> </ul>
+            </li>
+            <li>
+                <a href="presentation/admin/datos/show">Clientes</a>
+                <ul>  <!--submenu --> </ul>
+            </li>
+            <li >
+                <a  href="presentation/cliente/datos/show">Administrador: <%=usuario.getCedula()%></a>
+                <ul>  <!--submenu --> </ul>
+            </li> 
+            <li >
+                <a  href="presentation/login/logout">Logout</a>
+                <ul>  <!--submenu --> </ul>
+            </li>                
+            <% } %>
+            <% } %>
             <% if (usuario==null){%>
             <li>
                 <a href="presentation/login/show">Login</a>
             </li>
-
-            <% }%>             
+            <% }%>   
         </ul>
     </div>
 </header> 
